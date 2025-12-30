@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { HiArrowUpRight } from 'react-icons/hi2';
+import { HiArrowRight, HiArrowUpRight } from 'react-icons/hi2';
 import { FaSearch, FaChartPie, FaHeadset } from 'react-icons/fa';
 
 export default function Services() {
@@ -31,21 +31,21 @@ export default function Services() {
       <div className="container mx-auto px-8 md:px-12 lg:px-16">
         {/* Header Section */}
         <div className="mb-16">
-          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Left Side - Tag and Title */}
-            <div className="flex-1">
+            <div className="md:col-span-2">
               <div className="inline-flex items-center gap-2 border border-1 text-black px-5 py-2 rounded-full text-normal font-semibold mb-6">
                 <span className="w-5 h-5 rounded-full bg-[var(--bgcolor)]"></span>
                 Business Services
               </div>
-              <h2 className="text-black text-6xl lg:text-6xl  lg:max-w-[9xl] font-bold" style={{ fontFamily: '"Host Grotesk", sans-serif', lineHeight: '1.2' }}>
-                The Best Solutions for Your Business Growth
+              <h2 className="text-black mb-6 text-6xl max-w-7xl font-bold" style={{ fontSize: '60px', fontFamily: '"Host Grotesk", sans-serif', padding: '20px 0px 0px', color: '#000000' }}>
+                The Best Solution for Your<br />Business Growth
               </h2>
             </div>
             
-            {/* Right Side - Description */}
-            <div className="flex-1 lg:max-w-xl">
-              <p className="text-gray-600  mt-36 text-normal leading-relaxed">
+            {/* Right Side - Description - Aligned with Card 3 */}
+            <div className="flex items-start pt-32">
+              <p style={{ fontSize: '16px', fontFamily: '"Host Grotesk", sans-serif', color: '#444444', lineHeight: '1.5' }}>
                 intangible solutions designed to help companies operate smoothly, reduce costs, improve productivity, and enhance customer satisfaction.
               </p>
             </div>
@@ -53,41 +53,41 @@ export default function Services() {
         </div>
 
         {/* Services Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 -mt-8">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
               <div 
                 key={index}
-                className="bg-white border border-gray-300 rounded-br-3xl p-8 hover:shadow-lg transition-shadow cursor-pointer"
-                style={{ borderBottomRightRadius: '2rem' }}
+                className="service-card bg-white border border-gray-300 rounded-br-3xl p-8 hover:shadow-lg cursor-pointer"
+                style={{ borderBottomRightRadius: '2rem', minHeight: '400px', clipPath: 'polygon(20% 0%, 80% 0%, 100% 0, 100% 80%, 80% 100%, 0 100%, 0% 80%, 0 0)' }}
               >
                 {/* Icon */}
-                <div className="mb-6">
-                  <IconComponent className="w-12 h-12 text-gray-600" />
+                <div className="mb-7 service-icon">
+                  <IconComponent className="w-15 h-15 text-gray-600" />
                 </div>
 
                 {/* Title */}
-                <h3 className="text-2xl font-bold text-black mb-2">
+                <h3 className="text-2xl font-bold text-black mb-4 service-title">
                   {service.title}
                 </h3>
 
                 {/* Subtitle */}
-                <p className="text-gray-600 text-sm mb-4">
+                <p className="text-gray-600 text-base mb-6 service-subtitle">
                   {service.subtitle}
                 </p>
 
                 {/* Separator */}
-                <div className="h-px bg-gray-300 mb-4"></div>
+                <div className="h-px bg-gray-300 mb-6 service-separator"></div>
 
                 {/* Description */}
-                <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                <p className="text-gray-600 text-base leading-relaxed mb-20 service-description">
                   {service.description}
                 </p>
 
                 {/* Action Button */}
-                <button className="w-12 h-12 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors">
-                  <HiArrowUpRight className="w-5 h-5 text-gray-700" />
+                <button className="service-arrow flex items-center justify-center">
+                  <HiArrowRight className="w-8 h-5 font-bold text-gray-700" />
                 </button>
               </div>
             );

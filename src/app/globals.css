@@ -281,3 +281,181 @@ button:hover .btn-wrap .text-two {
 button:hover .button-icon-scroll {
   transform: translateY(-3px);
 }
+
+/* Service Card Hover Effects */
+.service-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0ms ease-out;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  transform: translateY(100%);
+  transition: transform 0.4s ease-out;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.service-card:hover::before {
+  transform: translateY(0);
+  transition-duration: 0.4s;
+}
+
+.service-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.service-card:hover .service-title,
+.service-card:hover .service-subtitle,
+.service-card:hover .service-description {
+  color: #fff !important;
+  transition: color 0.4s ease-out;
+}
+
+.service-card:hover .service-separator {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+  transition: background-color 0.4s ease-out;
+}
+
+.service-icon {
+  transition: filter 0.4s ease-out;
+}
+
+.service-icon {
+  transition: filter 0.4s ease-out, transform 0.4s ease-out;
+  display: block;
+  transform: rotate3d(0, 0, 0, 0deg);
+}
+
+.service-icon svg,
+.service-icon > svg {
+  transition: filter 0.4s ease-out, transform 0.4s ease-out !important;
+  transform: rotate3d(0, 0, 0, 0deg);
+  display: block;
+}
+
+.service-card:hover .service-icon {
+  filter: brightness(0) saturate(100%) invert(72%) sepia(62%) saturate(412%) hue-rotate(37deg) brightness(100%) contrast(101%);
+  transform: rotate3d(1, 1, 1, 360deg) !important;
+}
+
+.service-card:hover .service-icon svg,
+.service-card:hover .service-icon > svg {
+  filter: brightness(0) saturate(100%) invert(72%) sepia(62%) saturate(412%) hue-rotate(37deg) brightness(100%) contrast(101%) !important;
+  transform: rotate3d(1, 1, 1, 360deg) !important;
+}
+
+.service-title,
+.service-subtitle,
+.service-description {
+  transition: color 0.4s ease-out;
+}
+
+.service-arrow {
+  width: 53px;
+  height: 53px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ebebeb;
+  border-radius: 50%;
+  margin-top: 32px;
+  color: #505050;
+  transform: rotate(-40deg);
+  transition: background-color 0.4s ease-out, color 0.4s ease-out;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.service-arrow svg {
+  transition: color 0.4s ease-out;
+  color: #505050;
+}
+
+.service-card:hover .service-arrow {
+  background-color: var(--bgcolor) !important;
+  transition: background-color 0.4s ease-out;
+}
+
+.service-card:hover .service-arrow svg {
+  color: #000 !important;
+  transition: color 0.4s ease-out;
+}
+
+/* Work Component Image Clip Path */
+.smooth-img img {
+  clip-path: polygon(20% 0%, 100% 0%, 100% 0%, 100% 70%, 80% 100%, 0 100%, 0% 80%, 0 0);
+}
+
+img {
+  max-width: 100%;
+}
+
+img, svg {
+  vertical-align: middle;
+}
+
+.testimonial {
+  background-color:var(--bs-gray-200);
+  padding: 40px;
+  clip-path: polygon(20% 0%, 100% 0%, 100% 0, 100% 80%, 80% 100%, 0 100%, 0% 80%, 0 0);
+  width: 460px;
+  height: 350px;
+}
+
+.testimonial-two {
+  display: flex;
+  gap: 30px;
+  background-color: #F7F7F2;
+  padding: 20px;
+  align-items: center;
+  clip-path: polygon(20% 0%, 100% 0%, 100% 0, 100% 75%, 85% 100%, 0 100%, 0% 80%, 0 0);
+}
+
+.marquee-content {
+  animation: scroll-one 60s linear infinite;
+  display: flex;
+  gap: 20px;
+}
+
+@keyframes scroll-one {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-78.8936%);
+  }
+}
+
+.questions {
+  background-color: #444;
+  background-image: linear-gradient(180deg, #ffffff 22%, #a9e448);
+}
+
+.testimonials-swiper {
+  width: 100%;
+  overflow: visible !important;
+  position: relative;
+}
+
+.testimonials-swiper .swiper-wrapper {
+  display: flex;
+  align-items: stretch;
+  transition-timing-function: ease-out;
+}
+
+.testimonials-swiper .swiper-slide {
+  height: auto;
+  display: flex;
+  width: auto;
+}

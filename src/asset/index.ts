@@ -22,6 +22,17 @@ import utube from './utube.png';
 import facebook from './facebook.png';
 import google from './google.png';
 import trustpilot from './trustpilot.png';
+import p1 from './p1.png';
+import p2 from './p2.png';
+import p3 from './p3.png';
+import p4 from './p4.png';
+import p5 from './p5.png';
+import p6 from './p6.png';
+import p7 from './p7.png';
+import p8 from './p8.png';
+import article1 from './article1.png';
+import article2 from './article2.png';
+import contactus from './contactus.png';
 
-export { logo, bg, li1, li2, li3, li4, leadbanner, leadgrowth, leads, leadtrusted, work, t1, t2, t3, testimonal1, testimonal2, tr1, tr2, tr3, youtube, utube, facebook, google, trustpilot };
+export { logo, bg, li1, li2, li3, li4, leadbanner, leadgrowth, leads, leadtrusted, work, t1, t2, t3, testimonal1, testimonal2, tr1, tr2, tr3, youtube, utube, facebook, google, trustpilot, p1, p2, p3, p4, p5, p6, p7, p8, article1, article2, contactus };
 

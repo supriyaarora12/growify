@@ -44,29 +44,29 @@ export default function Questions() {
   };
 
   return (
-    <section className="questions py-20">
-      <div className="container mx-auto px-8 md:px-12 lg:px-16">
+    <section className="questions py-10 md:py-16 lg:py-20">
+      <div className="container mx-auto px-4 md:px-12 lg:px-16">
         {/* Top Section - Label and Heading */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 border border-1 text-black px-5 py-2 rounded-full text-normal font-semibold mb-6 bg-white">
-            <span className="w-5 h-5 rounded-full bg-[var(--bgcolor)]"></span>
+          <div className="inline-flex items-center gap-2 border border-[#AFAFAf] text-black px-3 py-1 rounded-full text-medium font-semibold mb-6 bg-white">
+            <span className="w-4 h-4 rounded-full bg-[var(--bgcolor)]"></span>
             Questions
           </div>
-          <h2 className="text-black text-7xl lg:text-7xl font-bold mb-8" style={{ fontSize: '60px', fontFamily: '"Host Grotesk", sans-serif', padding: '20px 0px 0px', color: '#000000' }}>
+          <h2 className="text-black text-3xl md:text-5xl lg:text-[60px] font-bold mb-8" style={{ fontFamily: '"Host Grotesk", sans-serif', padding: '20px 0px 0px', color: '#000000' }}>
             Have Questions? We ve Got Answers!
           </h2>
         </div>
 
         {/* FAQ Accordion */}
-        <div className="max-w-6xl mx-auto">
+        <div className="w-full max-w-6xl mx-auto">
           <div className="bg-white border border-gray-300 shadow-lg overflow-hidden">
             {questions.map((item, index) => (
               <div key={item.id} className="border-b border-gray-300 last:border-b-0">
                 <button
                   onClick={() => toggleQuestion(index)}
-                  className="w-full px-8 py-8 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+                  className="w-full px-4 py-5 lg:px-8 lg:py-8 flex items-center justify-between text-left hover:bg-gray-50 transition-colors cursor-pointer"
                 >
-                  <span className="text-xl font-semibold text-black flex-1" style={{ fontFamily: '"Host Grotesk", sans-serif' }}>
+                  <span className="text-lg md:text-xl lg:text-2xl font-semibold text-black flex-1" style={{ fontFamily: '"Host Grotesk", sans-serif' }}>
                     {item.question}
                   </span>
                   <div className="ml-4 flex-shrink-0">
@@ -78,8 +78,8 @@ export default function Questions() {
                   </div>
                 </button>
                 {openIndex === index && (
-                  <div className="px-8 pb-6">
-                    <p className="text-gray-600 text-sm leading-relaxed" style={{ fontFamily: '"Host Grotesk", sans-serif' }}>
+                  <div className="px-4 pb-6 lg:px-8">
+                    <p className="text-gray-600 text-base leading-relaxed" style={{ fontFamily: '"Host Grotesk", sans-serif' }}>
                       {item.answer}
                     </p>
                   </div>

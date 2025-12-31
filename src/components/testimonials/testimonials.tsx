@@ -12,7 +12,7 @@ export default function Testimonials() {
       stars: 5,
       logo: 'facebook',
       subtitle: 'Professional & Reliable',
-      quote: 'This company truly understands business needs. Their team provided us with expert guidance and delivered results beyond our expectations.',
+      quote: '"This company truly understands business needs. Their team provided us with expert guidance and delivered results beyond our expectations".',
       avatar: tr1,
       name: 'Samuel Christopher'
     },
@@ -21,7 +21,7 @@ export default function Testimonials() {
       stars: 5,
       logo: 'trustpilot',
       subtitle: 'Professional & Reliable',
-      quote: 'This company truly understands business needs. Their team provided us with expert guidance and delivered results beyond our expectations.',
+      quote: '"This company truly understands business needs. Their team provided us with expert guidance and delivered results beyond our expectations".',
       avatar: tr2,
       name: 'Michael R'
     },
@@ -30,7 +30,7 @@ export default function Testimonials() {
       stars: 5,
       logo: 'google',
       subtitle: 'Professional & Reliable',
-      quote: 'This company truly understands business needs. Their team provided us with expert guidance and delivered results beyond our expectations.',
+      quote: '"This company truly understands business needs. Their team provided us with expert guidance and delivered results beyond our expectations".',
       avatar: tr3,
       name: 'Daniel Benjamin'
     }
@@ -40,7 +40,7 @@ export default function Testimonials() {
     {
       id: 1,
       title: 'Trusted Partners',
-      quote: 'Their expertise exceeded our expectations. They helped streamline our operations and introduced practical tools that immediately boosted productivity.',
+      quote: '"Their expertise exceeded our expectations. They helped streamline our operations and introduced practical tools that immediately boosted productivity".',
       name: 'Lomixo Tamosh',
       image: testimonal1,
       videoUrl: 'https://www.youtube.com/watch?v=1La4QzGeaaQ'
@@ -48,7 +48,7 @@ export default function Testimonials() {
     {
       id: 2,
       title: 'Highly Recommended',
-      quote: 'Their expertise exceeded our expectations. They helped streamline our operations and introduced practical tools that immediately boosted productivity.',
+      quote: '"Their expertise exceeded our expectations. They helped streamline our operations and introduced practical tools that immediately boosted productivity".',
       name: 'Sophia Maikal',
       image: testimonal2,
       videoUrl: 'https://www.youtube.com/watch?v=1La4QzGeaaQ'
@@ -60,8 +60,8 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="bg-white py-20">
-      <div className="container mx-auto px-8 md:px-12 lg:px-16">
+    <section className="bg-white py-10 lg:py-20">
+      <div className="container mx-auto px-4 md:px-12 lg:px-16">
         {/* Top Section - Label, Heading, and Rating */}
         <div className="mb-12">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
@@ -70,11 +70,11 @@ export default function Testimonials() {
                 <span className="w-5 h-5 rounded-full bg-[var(--bgcolor)]"></span>
                 Testimonials & Reviews
               </div>
-              <h2 className="text-black text-7xl lg:text-7xl max-w-4xl font-bold" style={{ fontSize: '60px', fontFamily: '"Host Grotesk", sans-serif', padding: '20px 0px 0px', color: '#000000' }}>
+              <h2 className="text-black text-3xl md:text-5xl lg:text-[60px] max-w-4xl font-bold" style={{ fontFamily: '"Host Grotesk", sans-serif', padding: '20px 0px 0px', color: '#000000' }}>
                 Trusted by Leading Brands and Professionals
               </h2>
             </div>
-            <div className="flex flex-col items-end mt-6 md:mt-0">
+            <div className="flex flex-col items-start lg:items-end mt-6 md:mt-0">
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-3xl font-bold text-black">4.7/</span>
                  <span className="text-xl font-normal text-black">5.0M</span>
@@ -90,10 +90,10 @@ export default function Testimonials() {
         </div>
 
         {/* First Row - Testimonial Cards */}
-        <div className="mb-8 overflow-hidden">
+        <div className="mb-8 w-full overflow-hidden">
           <div className="marquee-content">
             {[...testimonials, ...testimonials].map((testimonial, idx) => (
-              <div key={`${testimonial.id}-${idx}`} className="testimonial flex-shrink-0">
+              <div key={`${testimonial.id}-${idx}`} className="testimonial flex-shrink-0 w-[280px] md:w-[400px] lg:w-[460px]">
               <div className="flex justify-between items-start mb-4">
                 <div className="flex gap-1">
                   {[...Array(testimonial.stars)].map((_, i) => (
@@ -131,7 +131,7 @@ export default function Testimonials() {
                   )}
                 </div>
               </div>
-              <h3 className="text-lg font-bold text-black mb-6" style={{ fontFamily: '"Host Grotesk", sans-serif' }}>
+              <h3 className="text-2xl font-sans text-black mb-6" style={{ fontFamily: '"Host Grotesk", sans-serif' }}>
                 {testimonial.subtitle}
               </h3>
               <p className="text-gray-600 text-l leading-relaxed mb-15" style={{ fontFamily: '"Host Grotesk", sans-serif' }}>
@@ -160,10 +160,10 @@ export default function Testimonials() {
           {videoCards.map((card, index) => (
             <div
               key={card.id}
-              className="testimonial-two"
+              className="testimonial-two flex-col lg:flex-row"
             >
               {/* Image Section with YouTube Play Button - Left Side */}
-              <div className="relative testimonial-two-img" style={{ width: '300px', height: '400px', flexShrink: 0 }}>
+              <div className="relative testimonial-two-img w-full lg:w-[300px] h-[300px] lg:h-[400px]" style={{ flexShrink: 0 }}>
                 <figure className="relative w-full h-full">
                   <Image
                     src={index === 0 ? testimonal1 : testimonal2}
@@ -186,13 +186,14 @@ export default function Testimonials() {
                       />
                     </a>
                   )}
+                  
                 </figure>
                 {/* YouTube Play Button - Outside image for second card */}
                 {index === 1 && (
                   <a
-                    className="video-pop absolute cursor-pointer"
+                    className="video-pop absolute inset-0 flex items-center justify-center cursor-pointer"
                     onClick={() => handleVideoClick(card.videoUrl)}
-                    style={{ bottom: '-30px', left: '10px' }}
+                   
                   >
                     <Image
                       src={utube}
@@ -206,14 +207,14 @@ export default function Testimonials() {
               </div>
 
               {/* Text Content Section - Right Side */}
-              <div className="flex flex-col justify-center">
-                <h4 className="text-2xl font-bold text-black mb-4" style={{ fontFamily: '"Host Grotesk", sans-serif' }}>
+              <div className="flex flex-col justify-center text-center lg:text-left gap-6">
+                <h4 className="text-2xl font-semibold text-gray-800 mb-0 lg:mb-4" style={{ fontFamily: '"Host Grotesk", sans-serif' }}>
                   {card.title}
                 </h4>
-                <p className="text-gray-600 text-base leading-relaxed mb-6" style={{ fontFamily: '"Host Grotesk", sans-serif' }}>
+                <p className="text-gray-600 text-base leading-relaxed mb-0 lg:mb-10" style={{ fontFamily: '"Host Grotesk", sans-serif' }}>
                   {card.quote}
                 </p>
-                <h3 className="text-base font-semibold text-black" style={{ fontFamily: '"Host Grotesk", sans-serif' }}>
+                <h3 className="text-2xl font-bold text-black" style={{ fontFamily: '"Host Grotesk", sans-serif' }}>
                   {card.name}
                 </h3>
               </div>

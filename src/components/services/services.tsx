@@ -27,8 +27,8 @@ export default function Services() {
   ];
 
   return (
-    <section className="bg-white py-20">
-      <div className="container mx-auto px-8 md:px-12 lg:px-16">
+    <section id="services" className="bg-white py-20 scroll-mt-16">
+      <div className="container mx-auto px-4 md:px-12 lg:px-16">
         {/* Header Section */}
         <div className="mb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -38,13 +38,13 @@ export default function Services() {
                 <span className="w-5 h-5 rounded-full bg-[var(--bgcolor)]"></span>
                 Business Services
               </div>
-              <h2 className="text-black mb-6 text-6xl max-w-7xl font-bold" style={{ fontSize: '60px', fontFamily: '"Host Grotesk", sans-serif', padding: '20px 0px 0px', color: '#000000' }}>
-                The Best Solution for Your<br />Business Growth
+              <h2 className="text-black mb-6 text-3xl md:text-5xl lg:text-[60px] max-w-7xl font-bold" style={{ fontFamily: '"Host Grotesk", sans-serif', padding: '20px 0px 0px', color: '#000000' }}>
+                The Best Solution for Your<br className="hidden lg:block" />Business Growth
               </h2>
             </div>
             
             {/* Right Side - Description - Aligned with Card 3 */}
-            <div className="flex items-start pt-32">
+            <div className="flex items-start pt-4 lg:pt-32">
               <p style={{ fontSize: '16px', fontFamily: '"Host Grotesk", sans-serif', color: '#444444', lineHeight: '1.5' }}>
                 intangible solutions designed to help companies operate smoothly, reduce costs, improve productivity, and enhance customer satisfaction.
               </p>
@@ -53,42 +53,53 @@ export default function Services() {
         </div>
 
         {/* Services Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 -mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 lg:-mt-8">
           {services.map((service, index) => {
             const IconComponent = service.icon;
+            const borderColor = 'bg-gray-200';
+            
             return (
               <div 
                 key={index}
-                className="service-card bg-white border border-gray-300 rounded-br-3xl p-8 hover:shadow-lg cursor-pointer"
-                style={{ borderBottomRightRadius: '2rem', minHeight: '400px', clipPath: 'polygon(20% 0%, 80% 0%, 100% 0, 100% 80%, 80% 100%, 0 100%, 0% 80%, 0 0)' }}
+                className={`p-[1px] ${borderColor}`}
+                style={{ 
+                  clipPath: 'polygon(0% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%)'
+                }}
               >
-                {/* Icon */}
-                <div className="mb-7 service-icon">
-                  <IconComponent className="w-15 h-15 text-gray-600" />
+                <div 
+                  className="service-card group bg-white hover:bg-black p-8 hover:shadow-lg cursor-pointer relative min-h-[350px] lg:min-h-[400px] transition-colors duration-300"
+                  style={{ 
+                    clipPath: 'polygon(0% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%)'
+                  }}
+                >
+                  {/* Icon */}
+                  <div className="mb-7 service-icon">
+                    <IconComponent className="w-15 h-15 text-gray-600 group-hover:text-[var(--bgcolor)] transition-colors duration-300" />
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-2xl font-bold mb-4 service-title text-black group-hover:text-white transition-colors duration-300">
+                    {service.title}
+                  </h3>
+
+                  {/* Subtitle */}
+                  <p className="text-base mb-6 service-subtitle text-gray-600 group-hover:text-gray-300 transition-colors duration-300">
+                    {service.subtitle}
+                  </p>
+
+                  {/* Separator */}
+                  <div className="h-px mb-6 service-separator bg-gray-300 group-hover:bg-gray-600 transition-colors duration-300"></div>
+
+                  {/* Description */}
+                  <p className="text-base leading-relaxed mb-20 service-description text-gray-600 group-hover:text-gray-300 transition-colors duration-300">
+                    {service.description}
+                  </p>
+
+                  {/* Action Button */}
+                  <button className="service-arrow flex items-center justify-center cursor-pointer group-hover:bg-[var(--bgcolor)] transition-colors duration-300">
+                    <HiArrowRight className="w-8 h-5 font-bold text-gray-700 group-hover:text-black transition-colors duration-300" />
+                  </button>
                 </div>
-
-                {/* Title */}
-                <h3 className="text-2xl font-bold text-black mb-4 service-title">
-                  {service.title}
-                </h3>
-
-                {/* Subtitle */}
-                <p className="text-gray-600 text-base mb-6 service-subtitle">
-                  {service.subtitle}
-                </p>
-
-                {/* Separator */}
-                <div className="h-px bg-gray-300 mb-6 service-separator"></div>
-
-                {/* Description */}
-                <p className="text-gray-600 text-base leading-relaxed mb-20 service-description">
-                  {service.description}
-                </p>
-
-                {/* Action Button */}
-                <button className="service-arrow flex items-center justify-center">
-                  <HiArrowRight className="w-8 h-5 font-bold text-gray-700" />
-                </button>
               </div>
             );
           })}

@@ -7,6 +7,10 @@ import Work from '@/components/work/work';
 import Teams from '@/components/teams/teams';
 import Testimonials from '@/components/testimonials/testimonials';
 import Questions from '@/components/questions/questions';
+import Pricing from '@/components/pricing/pricing';
+import Partnership from '@/components/partnership/partnership';
+import Article from '@/components/article/article';
+import ScrollProgress from '@/components/scrollProgress/scrollProgress';
 
 export default function Home() {
   return (
@@ -20,8 +24,12 @@ export default function Home() {
         <Teams />
         <Testimonials />
         <Questions />
+        <Pricing />
+        <Partnership />
+        <Article />
       </main>
       <Footer />
+      <ScrollProgress />
     </>
   );
 }

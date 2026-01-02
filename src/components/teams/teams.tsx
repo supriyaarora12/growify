@@ -62,12 +62,12 @@ export default function Teams() {
             return (
               <div 
                 key={member.id}
-                className="relative overflow-visible w-full lg:w-[676px] mx-auto"
+                className="relative overflow-visible w-full mx-auto"
                 style={{ minHeight: 'auto', height: 'auto' }}
               >
                 {/* Outer container with clip-path and border color */}
                 <div 
-                  className={`p-[1px] ${borderColor} w-full lg:w-[676px] h-auto lg:h-[352.4px]`}
+                  className={`p-[1px] ${borderColor} w-full h-auto md:h-[380px] lg:h-[352.4px]`}
                   style={{ 
                     clipPath: 'polygon(0% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%)'
                   }}
@@ -80,7 +80,7 @@ export default function Teams() {
                     }}
                   >
                     {/* Mobile Image - Above text on mobile */}
-                    <div className="relative lg:hidden mb-6 flex justify-center">
+                    <div className="relative md:hidden mb-6 flex justify-center">
                       <div className="relative overflow-hidden w-[200px] h-[250px]">
                         <Image
                           src={member.image}
@@ -92,7 +92,7 @@ export default function Teams() {
                     </div>
 
                     {/* Text Content */}
-                    <div className="flex flex-col h-full pr-0 lg:pr-64 text-center lg:text-left">
+                    <div className="flex flex-col h-full pr-0 md:pr-[280px] text-center md:text-left">
                       <div className="text-normal font-semibold text-black mb-2" style={{ fontFamily: '"Host Grotesk", sans-serif' }}>
                         {member.role}
                       </div>
@@ -109,7 +109,7 @@ export default function Teams() {
                       </p>
                       
                       {/* Social Media Icons */}
-                      <div className="flex gap-3 justify-center lg:justify-start">
+                      <div className="flex gap-3 justify-center md:justify-start">
                         <button className="w-12 h-12 rounded-full border border-gray-500 hover:bg-gray-100 flex items-center justify-center transition-colors cursor-pointer">
                           <CiFacebook className="w-8 h-8 text-gray-700" />
                         </button>
@@ -125,7 +125,7 @@ export default function Teams() {
                 </div>
 
                 {/* Desktop Image - Right side (absolute positioning) */}
-                <div className="hidden lg:block absolute right-4 top-1/2 -translate-y-1/2 z-20" style={{ clipPath: 'none' }}>
+                <div className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 z-20" style={{ clipPath: 'none' }}>
                   <div className="relative overflow-hidden" style={{ width: '250px', height: '320.8px' }}>
                     <Image
                       src={member.image}

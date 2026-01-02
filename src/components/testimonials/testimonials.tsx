@@ -160,10 +160,15 @@ export default function Testimonials() {
           {videoCards.map((card, index) => (
             <div
               key={card.id}
-              className="testimonial-two flex-col lg:flex-row"
+              className="testimonial-two flex-col lg:flex-col xl:flex-row"
             >
-              {/* Image Section with YouTube Play Button - Left Side */}
-              <div className="relative testimonial-two-img w-full lg:w-[300px] h-[300px] lg:h-[400px]" style={{ flexShrink: 0 }}>
+              {/* Title - Only show at lg, hide at xl (desktop) */}
+              <h4 className="text-2xl font-semibold text-gray-800 mb-4 lg:mb-4 xl:hidden" style={{ fontFamily: '"Host Grotesk", sans-serif' }}>
+                {card.title}
+              </h4>
+              
+              {/* Image Section with YouTube Play Button */}
+              <div className="relative testimonial-two-img w-full lg:w-full xl:w-[300px] h-[300px] lg:h-[400px] xl:h-[400px] mb-4 xl:mb-0" style={{ flexShrink: 0 }}>
                 <figure className="relative w-full h-full">
                   <Image
                     src={index === 0 ? testimonal1 : testimonal2}
@@ -186,14 +191,12 @@ export default function Testimonials() {
                       />
                     </a>
                   )}
-                  
                 </figure>
                 {/* YouTube Play Button - Outside image for second card */}
                 {index === 1 && (
                   <a
                     className="video-pop absolute inset-0 flex items-center justify-center cursor-pointer"
                     onClick={() => handleVideoClick(card.videoUrl)}
-                   
                   >
                     <Image
                       src={utube}
@@ -206,12 +209,13 @@ export default function Testimonials() {
                 )}
               </div>
 
-              {/* Text Content Section - Right Side */}
-              <div className="flex flex-col justify-center text-center lg:text-left gap-6">
-                <h4 className="text-2xl font-semibold text-gray-800 mb-0 lg:mb-4" style={{ fontFamily: '"Host Grotesk", sans-serif' }}>
+              {/* Text Content Section */}
+              <div className="flex flex-col justify-center text-center lg:text-left xl:text-left xl:pl-6">
+                {/* Title - Only show at xl (desktop) */}
+                <h4 className="hidden xl:block text-2xl font-semibold text-gray-800 mb-4" style={{ fontFamily: '"Host Grotesk", sans-serif' }}>
                   {card.title}
                 </h4>
-                <p className="text-gray-600 text-base leading-relaxed mb-0 lg:mb-10" style={{ fontFamily: '"Host Grotesk", sans-serif' }}>
+                <p className="text-gray-600 text-base leading-relaxed mb-6 xl:mb-10" style={{ fontFamily: '"Host Grotesk", sans-serif' }}>
                   {card.quote}
                 </p>
                 <h3 className="text-2xl font-bold text-black" style={{ fontFamily: '"Host Grotesk", sans-serif' }}>

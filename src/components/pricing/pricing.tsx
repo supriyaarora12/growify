@@ -112,7 +112,7 @@ export default function Pricing() {
                </div>
 
                {/* Bottom Section - Features */}
-               <div className={`${plan.isPopular ? 'bg-black' : 'bg-white'} p-6 lg:p-8`}>
+               <div className={`${plan.isPopular ? 'bg-black' : 'bg-white'} p-5 lg:p-8 pb-10 lg:pb-8`}>
                 <ul className="space-y-4 mb-6 lg:mb-8">
                   {plan.features.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3">
@@ -128,7 +128,7 @@ export default function Pricing() {
                   ))}
                 </ul>
                 <button
-                  className={`py-5 px-6 rounded-2xl font-semibold flex items-center justify-center gap-2 transition-colors overflow-hidden relative cursor-pointer w-full lg:w-auto ${
+                  className={`py-3 px-4 lg:py-5 lg:px-6 rounded-2xl text-sm lg:text-base font-semibold flex items-center justify-center gap-2 transition-colors overflow-hidden relative cursor-pointer w-full max-w-[calc(100%-2rem)] mx-auto lg:w-auto ${
                     plan.isPopular
                       ? 'bg-[var(--bgcolor)] hover:bg-[#8fc038] text-black'
                       : 'bg-[var(--bgcolor)] hover:bg-[#8fc038] text-black'
@@ -139,7 +139,7 @@ export default function Pricing() {
                     <span className="text-one inline-block transition-transform duration-300">Get Started Today</span>
                     <span className="text-two absolute top-full left-0 w-full inline-block transition-transform duration-300">Get Started Today</span>
                   </span>
-                  <HiArrowRight className="w-5 h-5 button-icon-scroll" />
+                  <HiArrowRight className="w-4 h-4 lg:w-5 lg:h-5 button-icon-scroll" />
                 </button>
               </div>
                </div>

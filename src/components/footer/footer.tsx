@@ -17,32 +17,32 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-black text-white font-sans pt-12 md:pt-20 lg:pt-[120px] text-base">
+    <footer className="bg-black text-white font-sans pt-12 md:pt-20 lg:pt-20 xl:pt-[120px] text-base">
       <div className="container mx-auto px-4 md:px-12 lg:px-16">
         {/* Top Section - Social Media Links */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:flex lg:justify-center gap-4 mb-12">
-          <button className="bg-[#a9a9a938] rounded-lg w-full lg:w-[350px] h-[60px] flex items-center justify-between text-[#212529]  text-base font-sans px-6 transition-colors cursor-pointer">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:flex lg:justify-start gap-4 mb-12">
+          <button className="bg-[#a9a9a938] rounded-lg w-full lg:w-auto lg:flex-1 xl:w-[350px] h-[60px] flex items-center justify-between text-[#212529]  text-base font-sans px-6 transition-colors cursor-pointer">
             <span className="text-white  hover:text-bgcolor">Facebook</span>
             <CiFacebook className="w-6 h-6 text-white" />
           </button>
-          <button className="bg-[#a9a9a938] rounded-lg w-full lg:w-[350px] h-[60px] flex items-center justify-between text-[#212529] text-base font-sans px-6 transition-colors cursor-pointer">
+          <button className="bg-[#a9a9a938] rounded-lg w-full lg:w-auto lg:flex-1 xl:w-[350px] h-[60px] flex items-center justify-between text-[#212529] text-base font-sans px-6 transition-colors cursor-pointer">
             <span className="text-white  hover:text-bgcolor">Linkedin</span>
             <CiLinkedin className="w-6 h-6 text-white" />
           </button>
-          <button className="bg-[#a9a9a938] rounded-lg w-full lg:w-[350px] h-[60px] flex items-center justify-between text-[#212529]  hover:text-[#A9E448] text-base font-sans px-6 transition-colors cursor-pointer">
+          <button className="bg-[#a9a9a938] rounded-lg w-full lg:w-auto lg:flex-1 xl:w-[350px] h-[60px] flex items-center justify-between text-[#212529]  hover:text-[#A9E448] text-base font-sans px-6 transition-colors cursor-pointer">
             <span className="text-white  hover:text-bgcolor">Twitter</span>
             <RiTwitterXLine className="w-6 h-6 text-white" />
           </button>
-          <button className="bg-[#a9a9a938] rounded-lg w-full lg:w-[350px] h-[60px] flex items-center justify-between text-[#212529] text-base font-sans px-6 transition-colors cursor-pointer">
+          <button className="bg-[#a9a9a938] rounded-lg w-full lg:w-auto lg:flex-1 xl:w-[350px] h-[60px] flex items-center justify-between text-[#212529] text-base font-sans px-6 transition-colors cursor-pointer">
             <span className="text-white  hover:text-bgcolor">Instagram</span>
             <PiInstagramLogoLight className="w-6 h-6 text-white" />
           </button>
         </div>
 
         {/* Middle Section - Three Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:flex lg:justify-center gap-6 md:gap-4 lg:gap-4 mb-16 lg:mx-[-12px] pt-12 md:pt-20 lg:pt-[120px] text-base font-sans">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:flex lg:justify-start gap-6 md:gap-4 lg:gap-8 mb-16 pt-12 md:pt-20 lg:pt-20 xl:pt-[120px] text-base font-sans">
           {/* Expertise Column - Aligned with Facebook */}
-          <div className="w-full lg:w-[350px] lg:flex-shrink-0 lg:ml-16">
+          <div className="w-full lg:w-1/3 xl:w-[350px] lg:flex-shrink-0">
             <h2 className="text-bgcolor text-2xl font-semibold mb-4">Expertise</h2>
             <ul className="space-y-4">
               <li>
@@ -79,7 +79,7 @@ export default function Footer() {
           </div>
 
           {/* Links Column - Aligned with LinkedIn */}
-          <div className="w-full lg:w-87.5 lg:shrink-0">
+          <div className="w-full lg:w-1/3 xl:w-87.5 lg:shrink-0">
             <h2 className="text-bgcolor text-2xl font-semibold mb-4">Links.</h2>
             <ul className="space-y-4">
               <li>
@@ -116,20 +116,20 @@ export default function Footer() {
           </div>
 
           {/* Subscribe Column - Aligned with Twitter */}
-          <div className="w-full md:col-span-2 lg:col-span-1 lg:w-[400px] lg:shrink-0">
+          <div className="w-full md:col-span-2 lg:col-span-1 lg:w-1/3 xl:w-[400px] lg:shrink-0 lg:-ml-8 xl:ml-0">
             <h2 className="text-bgcolor text-2xl font-semibold mb-4">Subscribe to the newsletter.</h2>
             <p className="text-white  mb-4">Get seasonal cleaning tips,exclusive offer & more</p>
             
             {/* Newsletter Form */}
-            <form id="subscribe-form" className="footer-form  subscribe-form flex flex-col md:flex-row gap-2 mt-5 mb-10 text-[#212529] text-base font-sans pointer-events-auto">
+            <form id="subscribe-form" className="footer-form  subscribe-form flex flex-col md:flex-row lg:flex-col xl:flex-col gap-2 mt-5 mb-10 text-[#212529] text-base font-sans pointer-events-auto">
               <input
                 type="email"
                 placeholder="thomas@domain.com"
-                className="flex-1 bg-[#a9a9a938]  text-white font-semibold rounded-xl px-4 md:px-6 lg:px-25 py-5 focus:outline-none focus:ring-2 focus:ring-[var(--bgcolor)]"
+                className="flex-1 bg-[#a9a9a938]  text-white font-semibold rounded-xl px-4 md:px-6 lg:px-6 xl:px-25 py-5 focus:outline-none focus:ring-2 focus:ring-[var(--bgcolor)]"
               />
               <button
                 type="submit"
-                className="bg-bgcolor hover:bg-[#8fc038] text-black font-semibold rounded-xl px-10 py-5 flex items-center gap-3 transition-colors !cursor-pointer relative z-10 pointer-events-auto"
+                className="bg-bgcolor hover:bg-[#8fc038] text-black font-semibold rounded-xl px-6 lg:px-10 py-5 flex items-center gap-3 transition-colors !cursor-pointer relative z-10 pointer-events-auto whitespace-nowrap"
               >
                 <span>Subscribe</span>
                 <HiArrowUp className="w-4 h-4 rotate-45" />
@@ -159,7 +159,7 @@ export default function Footer() {
 
         {/* Bottom Section - Copyright and Rating */}
         <div className="flex justify-center">
-          <div className="border-t border-gray-800 pt-8 pb-8 flex flex-col lg:flex-row justify-center lg:justify-between items-center gap-4 w-full lg:max-w-362">
+          <div className="border-t border-gray-800 pt-8 pb-8 flex flex-col lg:flex-row justify-center lg:justify-between items-center gap-4 w-full lg:max-w-full lg:px-4 xl:max-w-362">
           <p className="text-white text-sm font-semibold text-center lg:text-left">
             Copyright © 2025 Grithub by Winsfolio. All Rights Reserved.
           </p>

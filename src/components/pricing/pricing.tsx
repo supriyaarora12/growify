@@ -3,6 +3,7 @@
 import React from 'react';
 import { HiCheck, HiX } from 'react-icons/hi';
 import { HiArrowRight } from 'react-icons/hi';
+import { trackButtonClick } from '@/utils/buttonTracking';
 
 export default function Pricing() {
   const plans = [
@@ -128,6 +129,7 @@ export default function Pricing() {
                   ))}
                 </ul>
                 <button
+                  onClick={() => trackButtonClick(`pricing-get-started-${plan.name.toLowerCase()}`)}
                   className={`py-3 px-4 lg:py-5 lg:px-6 rounded-2xl text-sm lg:text-base font-semibold flex items-center justify-center gap-2 transition-colors overflow-hidden relative cursor-pointer w-full max-w-[calc(100%-2rem)] mx-auto lg:w-auto ${
                     plan.isPopular
                       ? 'bg-[var(--bgcolor)] hover:bg-[#8fc038] text-black'

@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { bg, li1, li2, li3, li4 } from '@/asset';
 import { FcGoogle } from 'react-icons/fc';
 import { FaStar } from 'react-icons/fa6';
+import { trackButtonClick } from '@/utils/buttonTracking';
+import { useSubmitForm } from '@/utils/formSubmission';
 
 export default function Consulting() {
   const [formData, setFormData] = useState({
@@ -17,7 +19,11 @@ export default function Consulting() {
   });
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  
+  // React Query mutation for form submission
+  const submitFormMutation = useSubmitForm();
 
   const inquiryOptions = [
     { value: '', label: 'General Inquiry' },
@@ -58,7 +64,52 @@ export default function Consulting() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
+    console.log('Form submit triggered', formData);
+    
+    // Track button click
+    trackButtonClick('consulting-submit-now');
+    
+    // Validate required fields
+    if (!formData.name || formData.name.trim() === '') {
+      setSubmitMessage({ type: 'error', text: 'Please enter your name' });
+      return;
+    }
+
+    if (!formData.email || formData.email.trim() === '') {
+      setSubmitMessage({ type: 'error', text: 'Please enter your email' });
+      return;
+    }
+
+    setSubmitMessage(null);
+    console.log('Calling submitForm API...');
+
+    // Use React Query mutation
+    submitFormMutation.mutate(formData, {
+      onSuccess: (result) => {
+        if (result.success) {
+          setSubmitMessage({ type: 'success', text: result.message || 'Form submitted successfully!' });
+          // Reset form after successful submission
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            inquiryType: '',
+            inquiry: '',
+            role: ''
+          });
+          // Clear message after 5 seconds
+          setTimeout(() => {
+            setSubmitMessage(null);
+          }, 5000);
+        } else {
+          setSubmitMessage({ type: 'error', text: result.message || 'Failed to submit form. Please try again.' });
+        }
+      },
+      onError: (error) => {
+        console.error('Form submission catch error:', error);
+        setSubmitMessage({ type: 'error', text: 'An error occurred. Please try again.' });
+      }
+    });
   };
 
   return (
@@ -78,7 +129,7 @@ export default function Consulting() {
       <div className="container mx-auto px-4 md:px-12 lg:px-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-1 items-end">
           {/* Left Section - Content */}
-          <div className="text-white mt-6 lg:mt-10">
+          <div className="text-white mt-16 md:mt-6 lg:mt-10">
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 lg:mb-10 leading-tight">
               Focus on growing<br />
               <span className="block mt-2 lg:mt-4">your business.</span>
@@ -91,6 +142,7 @@ export default function Consulting() {
             
             {/* CTA Button */}
             <button 
+              onClick={() => trackButtonClick('consulting-get-started-free')}
               className="bg-[var(--bgcolor)] hover:bg-[#8fc038] text-black font-semibold rounded-xl px-8 py-4 flex items-center gap-2 mb-12 overflow-hidden relative cursor-pointer"
               style={{ transition: 'color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out' }}
             >
@@ -157,7 +209,7 @@ export default function Consulting() {
               <h2 className="text-4xl font-bold text-white">Consulting Queries?</h2>
             </div>
 
-            <form id="contact-form" className="get-a-quote text-[#212529] text-base font-sans space-y-4">
+            <form id="contact-form" onSubmit={handleSubmit} className="get-a-quote text-[#212529] text-base font-sans space-y-4">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-white text-sm font-bold mb-2">Complete Name</label>
@@ -167,6 +219,7 @@ export default function Consulting() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="@johnsmith"
+                    required
                     className="w-full bg-[#FBFBFB20] border border-gray-400 text-gray-300 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[var(--bgcolor)] placeholder:text-gray-300"
                   />
                 </div>
@@ -178,6 +231,7 @@ export default function Consulting() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="user@domain.com"
+                    required
                     className="w-full bg-[#FBFBFB20] border border-gray-400 text-[#ccc] rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[var(--bgcolor)] placeholder:text-gray-300"
                   />
                 </div>
@@ -299,25 +353,39 @@ export default function Consulting() {
                 </div>
               </div>
 
+              {/* Success/Error Message */}
+              {submitMessage && (
+                <div className={`p-4 rounded-xl ${submitMessage.type === 'success' ? 'bg-green-500/20 border border-green-500' : 'bg-red-500/20 border border-red-500'}`}>
+                  <p className={`text-sm font-semibold ${submitMessage.type === 'success' ? 'text-green-300' : 'text-red-300'}`}>
+                    {submitMessage.text}
+                  </p>
+                </div>
+              )}
+
               <div className="flex flex-col lg:flex-row items-center lg:items-center gap-4">
                 <button
                   type="submit"
-                  className="bg-[var(--bgcolor)] hover:bg-[#8fc038] text-black font-semibold rounded-xl px-6 lg:px-8 py-3 lg:py-4 overflow-hidden relative cursor-pointer w-full lg:w-auto"
+                  disabled={submitFormMutation.isPending}
+                  className="bg-[var(--bgcolor)] hover:bg-[#8fc038] text-black font-semibold rounded-xl px-6 lg:px-8 py-3 lg:py-4 overflow-hidden relative cursor-pointer w-full lg:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
                   style={{ transition: 'color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out' }}
                 >
                   <span className="btn-wrap relative inline-block overflow-hidden">
-                    <span className="text-one inline-block transition-transform duration-300">Submit Now</span>
-                    <span className="text-two absolute top-full left-0 w-full inline-block transition-transform duration-300">Submit Now</span>
+                    <span className="text-one inline-block transition-transform duration-300">
+                      {submitFormMutation.isPending ? 'Submitting...' : 'Submit Now'}
+                    </span>
+                    <span className="text-two absolute top-full left-0 w-full inline-block transition-transform duration-300">
+                      {submitFormMutation.isPending ? 'Submitting...' : 'Submit Now'}
+                    </span>
                   </span>
                 </button>
                 <div className="flex gap-3 justify-center lg:justify-start">
-                  <button type="button" className="w-12 h-12 rounded-full border border-white hover:bg-gray-600 flex items-center justify-center text-white transition-colors cursor-pointer">
+                  <button type="button" onClick={() => trackButtonClick('consulting-facebook')} className="w-12 h-12 rounded-full border border-white hover:bg-gray-600 flex items-center justify-center text-white transition-colors cursor-pointer">
                     <span className="text-xl font-bold">f</span>
                   </button>
-                  <button type="button" className="w-12 h-12 rounded-full border border-white hover:bg-gray-600 flex items-center justify-center text-white transition-colors cursor-pointer">
+                  <button type="button" onClick={() => trackButtonClick('consulting-google-plus')} className="w-12 h-12 rounded-full border border-white hover:bg-gray-600 flex items-center justify-center text-white transition-colors cursor-pointer">
                     <span className="text-xl font-bold">G+</span>
                   </button>
-                  <button type="button" className="w-12 h-12 rounded-full border border-white hover:bg-gray-600 flex items-center justify-center text-white transition-colors cursor-pointer">
+                  <button type="button" onClick={() => trackButtonClick('consulting-linkedin')} className="w-12 h-12 rounded-full border border-white hover:bg-gray-600 flex items-center justify-center text-white transition-colors cursor-pointer">
                     <span className="text-xl font-bold">in</span>
                   </button>
                 </div>

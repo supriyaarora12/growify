@@ -31,7 +31,7 @@ export default function Teams() {
     },
     {
       id: 4,
-      role: 'Community Manager',
+      role: 'Comunity manager',
       name: 'Olivia Harris',
       description: 'Senior Business Consultant with over 10 years of experience in strategy and operations.',
       image: t3
@@ -67,7 +67,7 @@ export default function Teams() {
               >
                 {/* Outer container with clip-path and border color */}
                 <div 
-                  className={`p-[1px] ${borderColor} w-full h-auto md:h-[380px] lg:h-[352.4px]`}
+                  className={`p-[1px] ${borderColor} w-full h-auto md:h-[380px] lg:h-[480px] xl:h-[352.4px]`}
                   style={{ 
                     clipPath: 'polygon(0% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%)'
                   }}
@@ -92,7 +92,7 @@ export default function Teams() {
                     </div>
 
                     {/* Text Content */}
-                    <div className="flex flex-col h-full pr-0 md:pr-[280px] text-center md:text-left">
+                    <div className="flex flex-col h-full pr-0 md:pr-[280px] lg:pr-[220px] xl:pr-64 text-center md:text-left">
                       <div className="text-normal font-semibold text-black mb-2" style={{ fontFamily: '"Host Grotesk", sans-serif' }}>
                         {member.role}
                       </div>
@@ -101,11 +101,7 @@ export default function Teams() {
                       </h3>
                       <div className="h-0.5 bg-gray-400 mb-4 lg:mb-8" style={{ width: '100%', borderTop: '1px solid #9ca3af' }}></div>
                       <p className="text-gray-600 text-base leading-relaxed mb-4 lg:mb-6 flex-1" style={{ fontFamily: '"Host Grotesk", sans-serif', textAlign: 'inherit' }}>
-                        Senior Business Consultant with over<br className="hidden lg:block" />
-                        <span className="lg:hidden"> </span>
-                        10 years of experience in strategy and<br className="hidden lg:block" />
-                        <span className="lg:hidden"> </span>
-                        operations.
+                        {member.description}
                       </p>
                       
                       {/* Social Media Icons */}
@@ -126,7 +122,7 @@ export default function Teams() {
 
                 {/* Desktop Image - Right side (absolute positioning) */}
                 <div className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 z-20" style={{ clipPath: 'none' }}>
-                  <div className="relative overflow-hidden" style={{ width: '250px', height: '320.8px' }}>
+                  <div className="relative overflow-hidden w-[200px] lg:w-[180px] xl:w-[250px] h-[256px] lg:h-[230px] xl:h-[320.8px]">
                     <Image
                       src={member.image}
                       alt={member.name}

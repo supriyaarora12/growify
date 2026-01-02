@@ -10,6 +10,7 @@ import { CiFacebook, CiLinkedin } from 'react-icons/ci';
 import { RiTwitterXLine } from 'react-icons/ri';
 import { PiInstagramLogoLight } from 'react-icons/pi';
 import { li1, li2, li3, li4 } from '@/asset';
+import { trackButtonClick } from '@/utils/buttonTracking';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -21,19 +22,19 @@ export default function Footer() {
       <div className="container mx-auto px-4 md:px-12 lg:px-16">
         {/* Top Section - Social Media Links */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:flex lg:justify-start gap-4 mb-12">
-          <button className="bg-[#a9a9a938] rounded-lg w-full lg:w-auto lg:flex-1 xl:w-[350px] h-[60px] flex items-center justify-between text-[#212529]  text-base font-sans px-6 transition-colors cursor-pointer">
+          <button onClick={() => trackButtonClick('footer-facebook')} className="bg-[#a9a9a938] rounded-lg w-full lg:w-auto lg:flex-1 xl:w-[350px] h-[60px] flex items-center justify-between text-[#212529]  text-base font-sans px-6 transition-colors cursor-pointer">
             <span className="text-white  hover:text-bgcolor">Facebook</span>
             <CiFacebook className="w-6 h-6 text-white" />
           </button>
-          <button className="bg-[#a9a9a938] rounded-lg w-full lg:w-auto lg:flex-1 xl:w-[350px] h-[60px] flex items-center justify-between text-[#212529] text-base font-sans px-6 transition-colors cursor-pointer">
+          <button onClick={() => trackButtonClick('footer-linkedin')} className="bg-[#a9a9a938] rounded-lg w-full lg:w-auto lg:flex-1 xl:w-[350px] h-[60px] flex items-center justify-between text-[#212529] text-base font-sans px-6 transition-colors cursor-pointer">
             <span className="text-white  hover:text-bgcolor">Linkedin</span>
             <CiLinkedin className="w-6 h-6 text-white" />
           </button>
-          <button className="bg-[#a9a9a938] rounded-lg w-full lg:w-auto lg:flex-1 xl:w-[350px] h-[60px] flex items-center justify-between text-[#212529]  hover:text-[#A9E448] text-base font-sans px-6 transition-colors cursor-pointer">
+          <button onClick={() => trackButtonClick('footer-twitter')} className="bg-[#a9a9a938] rounded-lg w-full lg:w-auto lg:flex-1 xl:w-[350px] h-[60px] flex items-center justify-between text-[#212529]  hover:text-[#A9E448] text-base font-sans px-6 transition-colors cursor-pointer">
             <span className="text-white  hover:text-bgcolor">Twitter</span>
             <RiTwitterXLine className="w-6 h-6 text-white" />
           </button>
-          <button className="bg-[#a9a9a938] rounded-lg w-full lg:w-auto lg:flex-1 xl:w-[350px] h-[60px] flex items-center justify-between text-[#212529] text-base font-sans px-6 transition-colors cursor-pointer">
+          <button onClick={() => trackButtonClick('footer-instagram')} className="bg-[#a9a9a938] rounded-lg w-full lg:w-auto lg:flex-1 xl:w-[350px] h-[60px] flex items-center justify-between text-[#212529] text-base font-sans px-6 transition-colors cursor-pointer">
             <span className="text-white  hover:text-bgcolor">Instagram</span>
             <PiInstagramLogoLight className="w-6 h-6 text-white" />
           </button>
@@ -129,6 +130,7 @@ export default function Footer() {
               />
               <button
                 type="submit"
+                onClick={() => trackButtonClick('footer-subscribe')}
                 className="bg-bgcolor hover:bg-[#8fc038] text-black font-semibold rounded-xl px-6 lg:px-10 py-5 flex items-center gap-3 transition-colors !cursor-pointer relative z-10 pointer-events-auto whitespace-nowrap"
               >
                 <span>Subscribe</span>

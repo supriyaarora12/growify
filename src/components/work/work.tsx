@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { work } from '@/asset';
+import { trackButtonClick } from '@/utils/buttonTracking';
 
 export default function Work() {
   const [activeStep, setActiveStep] = useState(1);
@@ -51,7 +52,10 @@ export default function Work() {
           {steps.map((step) => (
             <button
               key={step.step}
-              onClick={() => setActiveStep(step.step)}
+              onClick={() => {
+                trackButtonClick(`work-step-${step.step}`);
+                setActiveStep(step.step);
+              }}
               className={`px-4 md:px-10 lg:px-35 py-3 rounded-full font-semibold transition-all duration-300 cursor-pointer text-sm md:text-base ${
                 activeStep === step.step
                   ? 'bg-black text-white'

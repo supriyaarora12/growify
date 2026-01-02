@@ -3,6 +3,7 @@
 import React from 'react';
 import { HiArrowRight, HiArrowUpRight } from 'react-icons/hi2';
 import { FaSearch, FaChartPie, FaHeadset } from 'react-icons/fa';
+import { trackButtonClick } from '@/utils/buttonTracking';
 
 export default function Services() {
   const services = [
@@ -96,7 +97,7 @@ export default function Services() {
                   </p>
 
                   {/* Action Button */}
-                  <button className="service-arrow flex items-center justify-center cursor-pointer group-hover:bg-[var(--bgcolor)] transition-colors duration-300">
+                  <button onClick={() => trackButtonClick(`services-${service.title.toLowerCase().replace(/\s+/g, '-')}`)} className="service-arrow flex items-center justify-center cursor-pointer group-hover:bg-[var(--bgcolor)] transition-colors duration-300">
                     <HiArrowRight className="w-8 h-5 font-bold text-gray-700 group-hover:text-black transition-colors duration-300" />
                   </button>
                 </div>

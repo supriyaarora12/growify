@@ -8,6 +8,7 @@ import { FaStar } from 'react-icons/fa6';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
 import { FaXmark } from 'react-icons/fa6';
 import { FaFacebook, FaLinkedin, FaXTwitter, FaInstagram } from 'react-icons/fa6';
+import { trackButtonClick } from '@/utils/buttonTracking';
 
 interface ContactDrawerProps {
   isOpen: boolean;
@@ -63,7 +64,10 @@ export default function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
         <div className="h-full flex flex-col overflow-y-auto m-2 border-4 border-black">
           {/* Close Button */}
           <button
-            onClick={onClose}
+            onClick={() => {
+              trackButtonClick('contact-drawer-close');
+              onClose();
+            }}
             className="absolute top-4 right-4 z-10 w-10 h-10  border-4 border-white  rounded-full flex items-center justify-center text-black transition-colors cursor-pointer"
           >
             <FaXmark className="w-5 h-5  text-white" />
@@ -139,16 +143,16 @@ export default function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
           {/* Icons Section - Bottom */}
           <div className="bg-white px-8 pb-8">
             <div className="flex gap-3">
-              <button type="button" className="w-12 h-12 bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-white transition-colors cursor-pointer">
+              <button type="button" onClick={() => trackButtonClick('contact-drawer-facebook')} className="w-12 h-12 bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-white transition-colors cursor-pointer">
                 <FaFacebook className="w-5 h-5" />
               </button>
-              <button type="button" className="w-12 h-12 bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-white transition-colors cursor-pointer">
+              <button type="button" onClick={() => trackButtonClick('contact-drawer-linkedin')} className="w-12 h-12 bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-white transition-colors cursor-pointer">
                 <FaLinkedin className="w-5 h-5" />
               </button>
-              <button type="button" className="w-12 h-12 bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-white transition-colors cursor-pointer">
+              <button type="button" onClick={() => trackButtonClick('contact-drawer-twitter')} className="w-12 h-12 bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-white transition-colors cursor-pointer">
                 <FaXTwitter className="w-5 h-5" />
               </button>
-              <button type="button" className="w-12 h-12 bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-white transition-colors cursor-pointer">
+              <button type="button" onClick={() => trackButtonClick('contact-drawer-instagram')} className="w-12 h-12 bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-white transition-colors cursor-pointer">
                 <FaInstagram className="w-5 h-5" />
               </button>
             </div>

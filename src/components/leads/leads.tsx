@@ -137,7 +137,7 @@ export default function Leads() {
           </div>
 
           {/* Right Side - Statistics Cards */}
-          <div className="md:col-span-2 lg:col-span-4 space-y-6 order-3 lg:order-none">
+          <div className="md:col-span-2 lg:col-span-4 space-y-6 order-3 lg:order-0">
             {/* Card 1 */}
             <div className="count-text statistic-card bg-white shadow-lg w-full min-h-0 lg:min-h-55 cursor-pointer flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-[20px] p-6 lg:p-8" style={{ border: '1px solid #B1B1B1', transition: '.4s ease-in-out', color: '#212529', fontSize: '16px', fontFamily: '"Host Grotesk", sans-serif' }}>
               <div className="w-20 h-20 bg-bgcolor rounded-full flex items-center justify-center shrink-0 statistic-icon-wrapper" style={{ transition: '.4s ease-in-out' }}>
@@ -150,7 +150,7 @@ export default function Leads() {
             </div>
 
             {/* Card 2 */}
-            <div className="count-text statistic-card bg-white shadow-lg w-full min-h-0 lg:min-h-55 cursor-pointer flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-[20px] p-6 lg:p-8" style={{ border: '1px solid #B1B1B1', transition: '.4s ease-in-out', color: '#212529', fontSize: '16px', fontFamily: '"Host Grotesk", sans-serif' }}>
+            <div className="count-text statistic-card bg-white shadow-lg w-full min-h-0 lg:min-h-55 cursor-pointer flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-5 p-6 lg:p-8" style={{ border: '1px solid #B1B1B1', transition: '.4s ease-in-out', color: '#212529', fontSize: '16px', fontFamily: '"Host Grotesk", sans-serif' }}>
               <div className="w-20 h-20 bg-bgcolor rounded-full flex items-center justify-center shrink-0 statistic-icon-wrapper" style={{ transition: '.4s ease-in-out' }}>
                 <FaFileAlt className="w-10 h-10 text-black statistic-icon" style={{ transition: '.4s ease-in-out' }} />
               </div>
@@ -161,7 +161,7 @@ export default function Leads() {
             </div>
 
             {/* Card 3 */}
-            <div className="count-text statistic-card bg-white shadow-lg w-full min-h-0 lg:min-h-55 cursor-pointer flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-[20px] p-6 lg:p-8" style={{ border: '1px solid #B1B1B1', transition: '.4s ease-in-out', color: '#212529', fontSize: '16px', fontFamily: '"Host Grotesk", sans-serif' }}>
+            <div className="count-text statistic-card bg-white shadow-lg w-full min-h-0 lg:min-h-55 cursor-pointer flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-5 p-6 lg:p-8" style={{ border: '1px solid #B1B1B1', transition: '.4s ease-in-out', color: '#212529', fontSize: '16px', fontFamily: '"Host Grotesk", sans-serif' }}>
               <div className="w-20 h-20 bg-bgcolor rounded-full flex items-center justify-center shrink-0 statistic-icon-wrapper" style={{ transition: '.4s ease-in-out' }}>
                 <FaChartLine className="w-10 h-10 text-black statistic-icon" style={{ transition: '.4s ease-in-out' }} />
               </div>

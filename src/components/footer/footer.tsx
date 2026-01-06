@@ -122,7 +122,7 @@ export default function Footer() {
             <p className="text-white  mb-4">Get seasonal cleaning tips,exclusive offer & more</p>
             
             {/* Newsletter Form */}
-            <form id="subscribe-form" className="footer-form  subscribe-form flex flex-col md:flex-row lg:flex-col xl:flex-col gap-2 mt-5 mb-10 text-[#212529] text-base font-sans pointer-events-auto">
+            <form id="subscribe-form" className="footer-form  subscribe-form flex flex-col md:flex-row lg:flex-col xl:flex-col 2xl:flex-row gap-2 mt-5 mb-10 text-[#212529] text-base font-sans pointer-events-auto">
               <input
                 type="email"
                 placeholder="thomas@domain.com"

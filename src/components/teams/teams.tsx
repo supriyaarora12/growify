@@ -44,7 +44,7 @@ export default function Teams() {
         {/* Top Section - Label and Heading */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 border border-1 text-black px-5 py-2 rounded-full text-normal font-semibold mb-6">
-            <span className="w-5 h-5 rounded-full bg-[var(--bgcolor)]"></span>
+            <span className="w-5 h-5 rounded-full bg-bgcolor"></span>
             Meet Our Team
           </div>
           <h2 className="text-black text-3xl md:text-5xl lg:text-[60px] font-bold mb-8" style={{ fontFamily: '"Host Grotesk", sans-serif', padding: '20px 0px 0px', color: '#000000' }}>
@@ -67,7 +67,7 @@ export default function Teams() {
               >
                 {/* Outer container with clip-path and border color */}
                 <div 
-                  className={`p-[1px] ${borderColor} w-full h-auto md:h-[380px] lg:h-[480px] xl:h-[352.4px]`}
+                  className={`p-[1px] ${borderColor} w-full h-auto md:h-95 lg:h-[480px] xl:h-[352.4px]`}
                   style={{ 
                     clipPath: 'polygon(0% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%)'
                   }}
